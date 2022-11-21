@@ -4,8 +4,14 @@ export default function Usuario() {
   const [username, setUserName] = useState("Catana");
   const [imguser, setImgUser] = useState("assets/img/catanacomics.svg");
   function Mudaimgperfil() {
-    const novaimgperfil = prompt("Nova Imagem de perfil");
-    setImgUser(novaimgperfil);
+    const url = prompt("Nova Imagem de perfil");
+    try {
+      let urll = new URL(url);
+    } catch (err) {
+      alert("Coloque uma url valida");
+      return;
+    }
+    setImgUser(url);
   }
   function Mudanomeperfil() {
     const novonomeperfil = prompt("Novo nome de exebição");
